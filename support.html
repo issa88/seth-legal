@@ -3,207 +3,473 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seth - Arabic to English Translation App</title>
+    <title>Seth سيث - Support | الدعم</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #1E40AF;
+            --primary-light: #DBEAFE;
+            --accent: #0EA5E9;
+            --text: #0F172A;
+            --text-secondary: #64748B;
+            --background: #F8FAFC;
+            --card: #FFFFFF;
+            --border: #E2E8F0;
+            --gradient-start: #3B82F6;
+            --gradient-end: #0EA5E9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: 'Inter', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--background);
+            color: var(--text);
             line-height: 1.6;
-            color: #1E293B;
-            background: linear-gradient(135deg, #EFF6FF 0%, #F8FAFC 100%);
             min-height: 100vh;
         }
-        .container {
-            max-width: 800px;
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            padding: 60px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 40px 20px;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+        
         .logo {
-            max-width: 280px;
+            width: 200px;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 4px 20px rgba(0,0,0,0.15));
         }
-        .tagline {
-            color: #64748B;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .tagline-arabic {
-            color: #64748B;
-            font-size: 1.1rem;
-            direction: rtl;
-        }
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        h2 {
-            color: #172554;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        .feature {
-            text-align: center;
-            padding: 20px;
-        }
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        .feature h3 {
-            color: #3B82F6;
-            margin-bottom: 8px;
-        }
-        .feature p {
-            color: #64748B;
-            font-size: 0.95rem;
-        }
-        .links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .links a {
-            color: #3B82F6;
-            text-decoration: none;
-            padding: 12px 24px;
-            border: 2px solid #3B82F6;
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-        .links a:hover {
-            background: #3B82F6;
+        
+        .hero h1 {
             color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .contact {
-            background: #F1F5F9;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
+        
+        .hero p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
         }
-        .contact p {
-            margin-bottom: 10px;
+        
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: -40px auto 0;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 2;
         }
-        .contact a {
-            color: #3B82F6;
+        
+        /* Cards */
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+        
+        .card-header h2 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
             font-weight: 600;
         }
-        .faq-item {
-            margin-bottom: 20px;
+        
+        .card-header .arabic {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
         }
-        .faq-item h3 {
-            color: #172554;
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .feature-item {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #F0F9FF 100%);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
+        }
+        
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.5rem;
+        }
+        
+        .feature-item h3 {
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .feature-item .arabic-label {
+            color: var(--text-secondary);
+            font-family: 'Noto Sans Arabic', sans-serif;
+            font-size: 0.9rem;
+        }
+        
+        /* Dialects & Accents */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+        
+        .tag {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .tag.accent {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .faq-item:first-child {
+            padding-top: 0;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .faq-question h3 {
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 600;
+            flex: 1;
+        }
+        
+        .faq-question .arabic {
+            color: var(--primary);
+            font-family: 'Noto Sans Arabic', sans-serif;
+            font-size: 0.95rem;
+            text-align: right;
+            flex: 1;
+        }
+        
+        .faq-answer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        @media (max-width: 600px) {
+            .faq-answer {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .faq-answer p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .faq-answer .arabic {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            text-align: right;
+            direction: rtl;
+        }
+        
+        /* Contact Card */
+        .contact-card {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-card h2 {
+            color: white;
+            font-size: 1.5rem;
             margin-bottom: 8px;
         }
-        .faq-item p {
-            color: #475569;
+        
+        .contact-card .subtitle {
+            opacity: 0.9;
+            margin-bottom: 24px;
+            font-family: 'Noto Sans Arabic', sans-serif;
         }
+        
+        .contact-card p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .email-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .email-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Legal Links */
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+        
+        .legal-links a {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .legal-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Footer */
         footer {
             text-align: center;
-            margin-top: 40px;
-            color: #64748B;
+            padding: 30px 20px;
+            color: var(--text-secondary);
             font-size: 0.9rem;
+        }
+        
+        footer span {
+            font-family: 'Noto Sans Arabic', sans-serif;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
             <img src="seth-logo.png" alt="Seth Logo" class="logo">
-            <p class="tagline">Speak English with Confidence</p>
-            <p class="tagline-arabic">احكي إنجليزي بثقة</p>
+            <h1>Speak English with Confidence</h1>
+            <p>احكي إنجليزي بثقة</p>
         </div>
-
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Features -->
         <div class="card">
-            <div class="features">
-                <div class="feature">
+            <div class="card-header">
+                <h2>Features</h2>
+                <span class="arabic">المميزات</span>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
                     <div class="feature-icon">🎤</div>
                     <h3>Speak Arabic</h3>
-                    <p>Say what you want in your dialect</p>
+                    <p class="arabic-label">احكي بالعربي</p>
                 </div>
-                <div class="feature">
+                <div class="feature-item">
                     <div class="feature-icon">🔄</div>
                     <h3>Get English</h3>
-                    <p>Instant natural translation</p>
+                    <p class="arabic-label">احصل على الإنجليزي</p>
                 </div>
-                <div class="feature">
+                <div class="feature-item">
                     <div class="feature-icon">📖</div>
                     <h3>Learn Pronunciation</h3>
-                    <p>See it written in Arabic script</p>
+                    <p class="arabic-label">تعلّم النطق</p>
                 </div>
-                <div class="feature">
+                <div class="feature-item">
                     <div class="feature-icon">🔊</div>
                     <h3>Hear It</h3>
-                    <p>Native accent audio playback</p>
+                    <p class="arabic-label">اسمعها</p>
                 </div>
             </div>
         </div>
-
+        
+        <!-- Dialects & Accents -->
         <div class="card">
-            <h2>Supported Dialects</h2>
-            <p>Syrian • Lebanese • Egyptian • Gulf • Iraqi</p>
-            <br>
-            <h2>English Accents</h2>
-            <p>Australian 🇦🇺 • American 🇺🇸 • British 🇬🇧 • Canadian 🇨🇦</p>
-        </div>
-
-        <div class="card">
-            <h2>Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <h3>How does Seth work?</h3>
-                <p>Simply speak or type in Arabic, and Seth will translate it to natural English with pronunciation guides in Arabic script so you know exactly how to say it.</p>
+            <div class="card-header">
+                <h2>Supported Dialects</h2>
+                <span class="arabic">اللهجات المدعومة</span>
+            </div>
+            <div class="tags-container">
+                <span class="tag">Syrian سوري</span>
+                <span class="tag">Lebanese لبناني</span>
+                <span class="tag">Egyptian مصري</span>
+                <span class="tag">Gulf خليجي</span>
+                <span class="tag">Iraqi عراقي</span>
             </div>
             
-            <div class="faq-item">
-                <h3>Which Arabic dialects are supported?</h3>
-                <p>Seth understands Syrian, Lebanese, Egyptian, Gulf, and Iraqi dialects, as well as Modern Standard Arabic.</p>
+            <div class="card-header" style="margin-top: 32px;">
+                <h2>English Accents</h2>
+                <span class="arabic">اللهجات الإنجليزية</span>
+            </div>
+            <div class="tags-container">
+                <span class="tag accent">🇦🇺 Australian</span>
+                <span class="tag accent">🇺🇸 American</span>
+                <span class="tag accent">🇬🇧 British</span>
+                <span class="tag accent">🇨🇦 Canadian</span>
+            </div>
+        </div>
+        
+        <!-- FAQ -->
+        <div class="card">
+            <div class="card-header">
+                <h2>FAQ</h2>
+                <span class="arabic">الأسئلة الشائعة</span>
             </div>
             
             <div class="faq-item">
-                <h3>What is Conversation Mode?</h3>
-                <p>In Conversation Mode, you can record the other person's English response and Seth will translate it back to Arabic for you in real-time.</p>
+                <div class="faq-question">
+                    <h3>How does Seth work?</h3>
+                    <span class="arabic">كيف يعمل سيث؟</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Simply speak or type in Arabic, and Seth will translate it to natural English with pronunciation guides in Arabic script.</p>
+                    <p class="arabic">احكي أو اكتب بالعربي، وسيث رح يترجملك لإنجليزي طبيعي مع دليل نطق بالحروف العربية.</p>
+                </div>
             </div>
             
             <div class="faq-item">
-                <h3>Is my data private?</h3>
-                <p>Yes! We don't store your translations or voice recordings. See our Privacy Policy for details.</p>
+                <div class="faq-question">
+                    <h3>What is Conversation Mode?</h3>
+                    <span class="arabic">ما هو وضع المحادثة؟</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Record the other person's English response and Seth will translate it back to Arabic for you in real-time.</p>
+                    <p class="arabic">سجّل رد الشخص الثاني بالإنجليزي وسيث رح يترجملك للعربي بنفس اللحظة.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is my data private?</h3>
+                    <span class="arabic">هل بياناتي خاصة؟</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We don't store your translations or voice recordings. Your privacy is our priority.</p>
+                    <p class="arabic">نعم! ما بنخزن ترجماتك أو تسجيلاتك الصوتية. خصوصيتك أولويتنا.</p>
+                </div>
             </div>
         </div>
-
-        <div class="card">
-            <h2>Support</h2>
-            <div class="contact">
-                <p>Need help? Have feedback? We'd love to hear from you!</p>
-                <p><a href="mailto:sethtranslationapp@outlook.com">sethtranslationapp@outlook.com</a></p>
+        
+        <!-- Contact -->
+        <div class="card contact-card">
+            <h2>Need Help? | بحاجة مساعدة؟</h2>
+            <p class="subtitle">نحب نسمع منك</p>
+            <p>We'd love to hear from you!</p>
+            <a href="mailto:sethtranslationapp@outlook.com" class="email-button">
+                sethtranslationapp@outlook.com
+            </a>
+        </div>
+        
+        <!-- Legal -->
+        <div class="card" style="text-align: center;">
+            <div class="card-header" style="justify-content: center; border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+                <h2>Legal | القانونية</h2>
+            </div>
+            <div class="legal-links">
+                <a href="privacy-policy.html">Privacy Policy | سياسة الخصوصية</a>
+                <a href="terms-of-service.html">Terms of Service | شروط الخدمة</a>
             </div>
         </div>
-
-        <div class="card">
-            <h2>Legal</h2>
-            <div class="links">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="terms-of-service.html">Terms of Service</a>
-            </div>
-        </div>
-
-        <footer>
-            <p>© 2025 Seth App. All rights reserved.</p>
-        </footer>
     </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Seth App. All rights reserved. | <span>جميع الحقوق محفوظة</span></p>
+    </footer>
 </body>
 </html>
